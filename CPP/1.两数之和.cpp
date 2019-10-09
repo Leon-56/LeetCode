@@ -9,16 +9,16 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         map<int, int> m;
-        vector<int> b(2, -1);
+        vector<int> ans(2, -1);
         for(int i = 0; i < nums.size(); i++) {
             if(m.count(target - nums[i]) > 0) {
-                b[0] = m[target - nums[i]];
-                b[1] = i;
-                return b;
+                ans[0] = m[target - nums[i]];
+                ans[1] = i;
+                return ans;
             }
             m[nums[i]] = i;
         }
-        return b;
+        return ans;
     }
 };
 // @lc code=end
