@@ -40,10 +40,6 @@ public:
 //方法二：字典序全排序列
 class Solution {
 public:
-    作者：yanyan090123
-链接：https://www.nowcoder.com/questionTerminal/fe6b651b66ae47d7acce78ffdd9a96c7?f=discussion
-来源：牛客网
-
 vector<string> Permutation(string str) {
         vector<string> res;
         int len = str.length();
@@ -97,5 +93,4 @@ vector<string> Permutation(string str) {
     }
     
     
-};
 };
