@@ -33,3 +33,36 @@ public:
         return s.substr(start, max);
     }
 };
+
+// 中心拓展法
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int size = int(s.size());
+        if(size == 0 || size == 1)
+            return s;
+        int start(0), end(0), maxLength(0);
+        for(int i = 0; i < size; i++)
+        {
+            int length1 = expendAroundCenter(s, i, i);
+            int length2 = expendAroundCenter(s, i, i + 1);
+            maxLength = max({maxLength, length1, length2});
+            if(maxLength > end - start + 1)
+            {
+                start = i - (maxLength - 1) / 2;
+                end = i + maxLength / 2;
+            }
+        }
+        return s.substr(start, maxLength);
+    }
+    int expendAroundCenter(string &s, int _left, int _right)
+    {
+        int left(_left), right(_right);
+        while(left >= 0 && right < s.size() && s[left] == s[right])
+        {
+            left--;
+            right++;
+        }
+        return right - left - 1;
+    }
+};
